@@ -1,0 +1,46 @@
+.loading {
+    border:16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid rgb(35, 214, 116);
+    width:100px;
+    height: 100px;
+    animation: load 2.5s ease-in-out infinite; 
+}
+
+body{
+    background-color: white;
+}
+
+@keyframes load {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+
+.line{
+    width: 70px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #f3f3f3;
+    box-shadow: 0px 0px 5px darkgrey;
+    cursor: pointer;
+}
+
+.circle {
+    height: 26px;
+    width: 26px;
+    position: relative;
+    background-color: #f3f3f3;
+    box-shadow: 0px 0px 5px darkgray;
+    border-radius: 50%;
+    top: 5%;
+    left: 3%;
+}
+
+.line:active{
+    background-color: rgb(35, 214, 116);
+}
+
+.line:active > .circle{
+    left: 60%;
+}

@@ -1,7 +1,16 @@
 let searchButton = document.getElementById('btn-search');
 let inputCountry = document.getElementById('input-country');
 let result = document.getElementById('result');
-searchButton.addEventListener('click', () => {
+searchButton.addEventListener('click', searchIt);
+
+inputCountry.addEventListener("keypress", function(event){
+    if(event.key == "Enter"){
+        event.preventDefault();
+        searchButton.click();
+    };
+});
+
+function searchIt(){
     let countryName = inputCountry.value;
     let finalLink = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
     console.log(finalLink);
@@ -53,4 +62,4 @@ searchButton.addEventListener('click', () => {
                 result.innerHTML = `<h3>Please enter a valid country name.</h3>`;
             }
         });
-});
+};

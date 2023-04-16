@@ -2,7 +2,6 @@ let searchButton = document.getElementById('btn-search');
 let inputCountry = document.getElementById('input-country');
 let result = document.getElementById('result');
 searchButton.addEventListener('click', searchIt);
-
 inputCountry.addEventListener("keypress", function(event){
     if(event.key == "Enter"){
         event.preventDefault();
@@ -12,6 +11,13 @@ inputCountry.addEventListener("keypress", function(event){
 
 function searchIt(){
     let countryName = inputCountry.value;
+    if(countryName === "Banana Republic"){
+        countryName = "Slovenia";
+    }else if(countryName == "Pizza" || countryName == "Pasta"){
+        countryName = "Italy";
+    }else if(countryName == "Give me oil" || countryName == "McDonalds"){
+        countryName = "United States";
+    };
     let finalLink = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
     console.log(finalLink);
     fetch(finalLink)
@@ -52,7 +58,6 @@ function searchIt(){
                     <span>${Object.values(data[0].languages).toString().split(",").join(", ")}</span>
                 </div>
             </div>
-            
             `;
         })
         .catch(() => {

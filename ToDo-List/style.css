@@ -28,7 +28,7 @@ h4{
 .container{
     width: 500px;
     height: 500px;
-    background-color: rgba(255, 255, 255, 0.55);
+    background-color: rgba(255, 255, 255, 0.69);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 2px 2px 15px rgba(255, 255, 255, 0.25);
@@ -74,7 +74,7 @@ h4{
     opacity: 0.8;
 }
 
-.content{
+#content{
     padding: 10px 0px;
 }
 
@@ -83,23 +83,29 @@ h4{
     margin: 7px 0px;
     padding: 7px 10px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: rgba(137, 117, 253, 0.199);
     border: none;
     border-radius: 15px;
 }
 
-.item i{
+.item .icon-check-empty{
     padding-left: 5px;
     scale: 130%;
 }
 
-.item i:hover,
-.item i:focus{
+.item .icon-check-empty:hover,
+.item .icon-checl-empty:focus,
+.item .icon-remove:hover,
+.item .icon-remove:focus{
     cursor: pointer;
 }
 
 .item h4{
-    margin-left: 15px;
     font-size: 20px;
+    flex-basis: 350px;
 }
+
+
+

@@ -7,13 +7,12 @@
     <title>To-Do-List</title>
     <link rel="stylesheet" href="style.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <script src="app.js"></script>
 </head>
 <body>
     <section class="container">
         <form>
-            <input type="text" name="input-task" id="input-task" placeholder="Enter a task here..." maxlength="50">
-            <button onclick="addToList()">Add</button>
+            <input type="text" name="task-input" id="task-input" placeholder="Enter a task here..." maxlength="50">
+            <button type="button" id="add-btn" onclick="addToList()">Add</button>
         </form>
         <div id="content">
             <div class="item">
@@ -28,5 +27,6 @@
             </div>
         </div>
     </section>
+    <script src="app.js"></script>
 </body>
 </html>

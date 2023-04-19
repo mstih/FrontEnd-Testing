@@ -1,9 +1,7 @@
-var numOfTasks = 0;
-var addButton = document.querySelector('button');
-var inputField = document.getElementById('input-task');
+let numOfTasks = 0;
 
 //support for enter button instead of add button
-inputField.addEventListener("keypress", function(event){
+document.getElementById('task-input').addEventListener("keypress", function(event){
     if(event.key == "Enter"){
         event.preventDefault();
         addButton.click();
@@ -11,20 +9,18 @@ inputField.addEventListener("keypress", function(event){
 });
 
 function addToList(){
-    let content = document.getElementById('content');
-    let text = document.getElementById('input-task').value;
-    console.log(text);
-    //checks if empty --> not added to the list
-    if (text !== ""){   
+    let text = document.getElementById('task-input');
+    if(text.value != ""){
+        let content = document.getElementById('content');
         let newTask = document.createElement("div");
         newTask.className = 'item';
         newTask.id = "task" + numOfTasks.toString;
         newTask.innerHTML = `<i class="icon-check-empty"></i>
-                                <h4>` +text+ `</h4>
+                                <h4>` +text.value+ `</h4>
                                 <i class="icon-remove"></i>`;
         content.appendChild(newTask);
         numOfTasks++;
-    };
+    }   
 };
 
 

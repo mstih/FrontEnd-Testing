@@ -34,7 +34,7 @@ function addToList(){
 function removeFromList(taskID){
     let taskToRemove = document.getElementById(taskID);
     content.removeChild(taskToRemove);
-    console.log("Removed item with id:" + taskID);
+    console.log("Removed item with id: " + taskID);
 }
 
 //function which changes the icon to done

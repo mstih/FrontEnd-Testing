@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500&display=swap');
+
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            background-image: url(back.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: -1;
+            /* Ensures the overlay doesn't cover the content (in the background) */
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            user-select: none;
+        }
+
+        #clock {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: calc(2em + 3vw);
+            backdrop-filter: blur(10px);
+            padding: calc(0.4em + 0.33vw);
+            border-radius: calc(0.2em + 4vw);
+            color: white;
+            font-weight: 500;
+            line-height: 1;
+            font-family: 'Inconsolata', monospace;
+            /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="clock"></div>
+    </div>
+
+</body>
+<script>
+    function clockCalc() {
+        const timeNow = new Date();
+        let toHours = timeNow.getHours();
+        const amPm = toHours <= 12 ? "AM" : "PM";
+        toHours = (toHours % 12 || 12).toString().padStart(2, "0");
+        const toMinutes = timeNow.getMinutes().toString().padStart(2, "0");
+        const toSeconds = timeNow.getSeconds().toString().padStart(2, "0");
+        document.getElementById("clock").textContent =
+            toHours + ":" + toMinutes + ":" + toSeconds + " " + amPm;
+    }
+
+    clockCalc();
+    setInterval(clockCalc, 1000);
+</script>
+
+</html>
